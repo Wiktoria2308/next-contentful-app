@@ -2,10 +2,7 @@ import { createClient } from "contentful";
 import ProductCard from "@/components/ProductCard";
 
 export async function getStaticProps() {
-  // const client = createClient({
-  //   space: '77jfzoun3xg5',
-  //   accessToken: "aCQpzT4wa4raMwsRDv2YIlXDRS20TTkcclIQ0OYB0Sw",
-  // })
+
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
