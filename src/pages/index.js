@@ -13,6 +13,7 @@ export async function getStaticProps() {
   return {
     props: {
       products: res.items,
+      revalidate: 1
     },
   };
 }
