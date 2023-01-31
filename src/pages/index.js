@@ -1,28 +1,23 @@
-import { createClient } from "contentful";
 import ProductCard from "@/components/ProductCard";
+import {getContentfulProducts} from '../lib/api'
 
 export async function getStaticProps() {
 
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const res = await client.getEntries({ content_type: "product" });
-
   return {
     props: {
-      products: res.items,
-      revalidate: 1
+      elements: {
+        products: await getContentfulProducts(),
+      }
     },
+    revalidate: 1
   };
 }
 
-export default function Products({ products }) {
-  // console.log(products);
+export default function Products({ elements }) {
+  // console.log(elements);
   return (
     <div className="product-list">
-      {products.map((product) => (
+      {elements.products.map((product) => (
         <ProductCard key={product.sys.id} product={product}></ProductCard>
       ))}
 

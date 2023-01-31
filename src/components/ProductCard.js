@@ -11,7 +11,7 @@ const { title, slug, price, image } = product.fields;
             {/* <Image src={"https:" + image.fields.file.url} width={image.fields.file.details.image.width} 
             height={image.fields.file.details.image.height} alt="product-image" /> */}
              <Image src={"https:" + image.fields.file.url} width={300} 
-            height={300} alt="product-image" />
+            height={300} alt="product-image" priority="true"/>
         </div>
         <div className="content">
             <div className="info">

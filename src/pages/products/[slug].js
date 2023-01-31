@@ -1,7 +1,7 @@
 import { createClient } from "contentful";
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
+import Skeleton from "@/components/Skeleton";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
     })
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 export async function getStaticProps({ params }) {
@@ -27,7 +27,16 @@ export async function getStaticProps({ params }) {
         content_type: 'product',
         'fields.slug': params.slug
     })
-   
+
+    if(!items.length){
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+   // revalidate or webhook
     return {
         props: { product: items[0]},
         revalidate: 1
@@ -35,11 +44,13 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ProductDetails({product}) {
+    if(!product) return <Skeleton />
+
     const { title, image, price, height, description} = product.fields
     return (
       <div>
          <div className="banner">
-            <Image src={"https:" + image.fields.file.url} width={600} height={600} alt='product-image'/>
+            <Image src={"https:" + image.fields.file.url} width={300} height={300} alt='product-image'/>
             <h2>{title}</h2>
          </div>
          <div className="info">
@@ -54,6 +65,10 @@ export default function ProductDetails({product}) {
          {`
         h2,h3 {
           text-transform: uppercase;
+        }
+        .banner {
+        position: relative;
+        top: -50px;
         }
         .banner h2 {
           margin: 0;
