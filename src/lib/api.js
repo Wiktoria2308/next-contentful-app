@@ -7,6 +7,12 @@ const getClient = () => {
   });
 };
 
+export const getAllEntries = async () => {
+  const client = getClient();
+  const res = await client.getEntries();
+  if (res.items) return res.items
+}
+
 export const getContentfulProducts = async () => {
   const client = getClient();
 

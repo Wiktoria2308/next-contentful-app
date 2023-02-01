@@ -5,7 +5,7 @@ export default function Layout({ navbar, children }) {
   
   return (
     <>
-    <Navigation navbar={navbar}/>
+    { navbar ? <Navigation navbar={navbar}/> : null}
     <div className="layout">
       <header>
         <Link href="/">
