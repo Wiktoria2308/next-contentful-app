@@ -11,7 +11,6 @@ export const getContentfulProducts = async () => {
   const client = getClient();
 
   const res = await client.getEntries({ content_type: "product" });
-  console.log(res.items)
   // revalidate or webhook
   return res.items
    
@@ -21,5 +20,5 @@ export const getContentfulNavbar = async () => {
   
     const res = await client.getEntries({ content_type: "navbar2" });
     // revalidate or webhook
-    return res.items
+    return res.items[0]
   };

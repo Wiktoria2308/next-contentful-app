@@ -1,7 +1,11 @@
 import Link from 'next/link'
+import Navigation from './Naviagtion'
 
-export default function Layout({ children }) {
+export default function Layout({ navbar, children }) {
+  
   return (
+    <>
+    <Navigation navbar={navbar}/>
     <div className="layout">
       <header>
         <Link href="/">
@@ -21,5 +25,6 @@ export default function Layout({ children }) {
         <p>Copyright 2023 Eco Plants :)</p>
       </footer>
     </div>
+    </>
   )
 }
