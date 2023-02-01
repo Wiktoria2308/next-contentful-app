@@ -18,8 +18,8 @@ const Navigation = ({ navbar }) => {
           className="brand-title"
           src={"https:" + logo.fields.image.fields.file.url}
           alt={logo.fields.altTest}
-          width={30}
-          height={30}
+          width={100}
+          height={100}
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,7 +27,7 @@ const Navigation = ({ navbar }) => {
         <Nav className="ms-auto align-items-end">
               {
                 menu.length ? menu.map((link) => (
-                  <Nav.Link key={link.sys.id} href={link.fields.url}>{link.fields.title}</Nav.Link>
+                  <Nav.Link className="text-white text-xl" key={link.sys.id} href={link.fields.url}>{link.fields.title}</Nav.Link>
                 )) : null
               }
         </Nav>

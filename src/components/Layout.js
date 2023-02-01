@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Navigation from './Naviagtion'
+import Navigation from './Navigation'
 
 export default function Layout({ navbar, children }) {
   
