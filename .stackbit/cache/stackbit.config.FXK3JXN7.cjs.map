@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../stackbit.config.js"],
+  "sourcesContent": ["\nexport default {\n  stackbitVersion: '~0.6.0',\n  ssgName: 'nextjs',\n  nodeVersion: '16',\n  modelsSources: {\n    type: 'contentful'\n  },\n  models: {\n    page: { type: 'page', urlPath: '/{slug}' },\n  },\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,IAAO,0BAAQ;AAAA,EACb,iBAAiB;AAAA,EACjB,SAAS;AAAA,EACT,aAAa;AAAA,EACb,eAAe;AAAA,IACb,MAAM;AAAA,EACR;AAAA,EACA,QAAQ;AAAA,IACN,MAAM,EAAE,MAAM,QAAQ,SAAS,UAAU;AAAA,EAC3C;AACF;",
+  "names": []
+}
