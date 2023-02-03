@@ -23,17 +23,23 @@ __export(stackbit_config_exports, {
   default: () => stackbit_config_default
 });
 module.exports = __toCommonJS(stackbit_config_exports);
+var import_cms_contentful = require("../../node_modules/@stackbit/cms-contentful/dist/index.js");
 var stackbit_config_default = {
   stackbitVersion: "~0.6.0",
   ssgName: "nextjs",
   nodeVersion: "16",
-  modelsSources: {
-    type: "contentful"
-  },
+  contentSources: [
+    new import_cms_contentful.ContentfulContentSource({
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      environment: process.env.CONTENTFUL_ENVIRONMENT,
+      previewToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+      accessToken: process.env.PERSONAL_ACCESS_TOKEN
+    })
+  ],
   models: {
     page: { type: "page", urlPath: "/{slug}" }
   }
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});
-//# sourceMappingURL=stackbit.config.FXK3JXN7.cjs.map
+//# sourceMappingURL=stackbit.config.PIHBGRN3.cjs.map

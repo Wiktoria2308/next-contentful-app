@@ -1,0 +1,46 @@
+{
+    "model": "product",
+    "srcType": "contentful",
+    "srcProjectId": "77jfzoun3xg5",
+    "presets": [
+        {
+            "label": "Product card",
+            "locale": null,
+            "metadata": {
+                "categories": [
+                    "Cards"
+                ],
+                "canDelete": true
+            },
+            "data": {
+                "title": "Euphorbia trigona",
+                "slug": "euphorbia-trigona",
+                "description": {
+                    "data": {},
+                    "content": [
+                        {
+                            "data": {},
+                            "content": [
+                                {
+                                    "data": {},
+                                    "marks": [],
+                                    "value": "Euphorbia trigona, the African milk tree, cathedral cactus, or Abyssinian euphorbia, is a species of flowering plant that originates from Central Africa.",
+                                    "nodeType": "text"
+                                }
+                            ],
+                            "nodeType": "paragraph"
+                        }
+                    ],
+                    "nodeType": "document"
+                },
+                "price": 2500,
+                "image": {
+                    "$$ref": "6fzKrtoM8eEi6AvtPhHn1l",
+                    "$$type": "__image_model"
+                },
+                "height": 75
+            },
+            "thumbnail": "images/product-product-card-2c04.png"
+        }
+    ]
+}

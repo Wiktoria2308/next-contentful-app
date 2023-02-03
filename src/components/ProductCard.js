@@ -6,19 +6,19 @@ export default function ProductCard({product}) {
 const { title, slug, price, image } = product.fields;
 
   return (
-    <div className="product-card">
+    <div className="product-card" data-sb-object-id={product.sys.id}>
         <div className="featured">
             {/* <Image src={"https:" + image.fields.file.url} width={image.fields.file.details.image.width} 
             height={image.fields.file.details.image.height} alt="product-image" /> */}
-             <Image src={"https:" + image.fields.file.url} width={300} 
+             <Image data-sb-field-path='image' src={"https:" + image.fields.file.url} width={300} 
             height={300} alt="product-image" priority="true"/>
         </div>
         <div className="content">
             <div className="info">
-                <h4>
+                <h4 data-sb-field-path='title'>
                     {title}
                 </h4>
-                <p>Price: {price} kr</p>
+                <p data-sb-field-path='price'>Price: {price} kr</p>
             </div>
                 <div className="actions">
                     <Link href={'/products/' + slug}>Buy this</Link>

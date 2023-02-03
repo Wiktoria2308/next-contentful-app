@@ -9,12 +9,11 @@ const Navigation = ({ navbar }) => {
   const logo = navbar.fields.logo;
   const menu = navbar.fields.menu;
 
-
   return (
-    <Navbar bg='dark'>
+    <Navbar bg='dark' data-sb-object-id={navbar.sys.id}>
     <Container className="justify-content-end ">
       <Navbar.Brand as={Link} href="/" className="nav-brand col-9 col-md-6 ">
-        <Image
+        <Image data-sb-field-path='logo'
           className="brand-title"
           src={"https:" + logo.fields.image.fields.file.url}
           alt={logo.fields.altTest}
@@ -24,10 +23,10 @@ const Navigation = ({ navbar }) => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="nav-links">
-        <Nav className="ms-auto align-items-end">
+        <Nav className="ms-auto align-items-end" data-sb-field-path='menu'>
               {
-                menu.length ? menu.map((link) => (
-                  <Nav.Link className="text-white text-xl" key={link.sys.id} href={link.fields.url}>{link.fields.title}</Nav.Link>
+                menu.length ? menu.map((link, index) => (
+                  <Nav.Link data-sb-field-path={`.[${index}]`} className="text-white text-xl" key={link.sys.id} href={link.fields.url}>{link.fields.title}</Nav.Link>
                 )) : null
               }
         </Nav>

@@ -22,3 +22,14 @@ export const getContentfulNavbar = async () => {
     // revalidate or webhook
     return res.items[0]
   };
+
+  export const getArticle = async () => {
+    const client = getClient();
+  
+    const res = await client.getEntries({ content_type: "article" })
+
+    const findArticle = res.items.find((item) => item.fields.title === "Eco plants")
+    // revalidate or webhook
+    return findArticle
+  };
+

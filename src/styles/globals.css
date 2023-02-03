@@ -24,7 +24,7 @@ header {
   text-align: center;
   margin: 60px 0;
 }
-header a {
+header{
   text-decoration: none;
   color: black;
   text-transform: uppercase;

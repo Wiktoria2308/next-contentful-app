@@ -1,20 +1,20 @@
 import Link from 'next/link'
 import Navigation from './Navigation'
 
-export default function Layout({ navbar, children }) {
+export default function Layout({ navbar, article, children }) {
   
   return (
     <>
     <Navigation navbar={navbar}/>
-    <div className="layout">
+    <div className="layout" data-sb-object-id={article.sys.id}>
       <header>
-        <Link href="/">
+        <div>
             <h1>
-              <span>Eco Plants</span>
-              <span>Webshop</span>
+              <span data-sb-field-path='title'>{article.fields.title}</span>
+              <span data-sb-field-path='subheading'>{article.fields.subheading}</span>
             </h1>
-            <h2>Green life</h2>
-        </Link>
+            <h2 data-sb-field-path='text'>{article.fields.text}</h2>
+        </div>
       </header>
 
       <div className="page-content">
