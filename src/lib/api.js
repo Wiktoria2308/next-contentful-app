@@ -33,3 +33,5 @@ export const getContentfulNavbar = async () => {
     return findArticle
   };
 
+
+
